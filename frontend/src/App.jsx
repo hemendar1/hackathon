@@ -78,7 +78,7 @@ function App() {
             <div className="divider" />
 
             {/* 🔥 FORCE GRAPH REMOUNT */}
-            <GraphView3D key={JSON.stringify(data?.fraud_rings)} data={data} />
+            <GraphView key={JSON.stringify(data?.fraud_rings)} data={data} />
 
             <div className="divider" />
             <RingTable rings={data.fraud_rings} />
