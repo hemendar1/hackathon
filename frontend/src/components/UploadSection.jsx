@@ -46,13 +46,17 @@ function UploadSection({ setData, hasData }) {
         setStep(0);
       }, 200);
 
-    } catch (err) {
-      console.error(err);
-      setLoading(false);
-      setStep(0);
-      const msg = err?.response?.data?.error || err.message || "Backend connection failed. Make sure Flask is running on port 5000.";
-      alert("❌ Error: " + msg);
+        }catch(err){
+
+      console.log("FULL ERROR:", err.response);
+
+      alert(
+        "Backend Error:\n" +
+        JSON.stringify(err.response?.data, null, 2)
+      );
+
     }
+
   };
 
   const handleChange = (e) => processFile(e.target.files[0]);
